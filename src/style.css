@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    --main-black: #212529;
+    --white-background: #f8f8f8;
+    --reduced-black: #343a40;
+}
+
+header {
+    background-color: var(--main-black);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2em 1em;
+}
+
+#bussiness-name {
+    color: var(--white-background);
+    font-family: "Cinzel", serif;
+    font-weight: 600;
+    font-size: 36px;
+}
+
+.navigation-button {
+    height: 36px;
+    border-style: none;
+    background-color: var(--main-black);
+    color: var(--white-background);
+    font-size: 14px;
+    font-weight: 700;
+    padding: 0 2em
+}
+
+.navigation-button:hover {
+    background-color: var(--white-background);
+    color: var(--main-black);
+}
+
+.navigation-dropdown {
+    background-color: var(--reduced-black) ;
+    font-size: 14px;
+    color: var(--white-background);
+    font-weight: 700;
+    padding: 0.33333em 0;
+    border-radius: 0.75em;
+    border-width: 1px;
+    border-color: var(--white-background);
+}
+
+#content {
+    background-color: var(--white-background);
+    width: 100vw;
+}
+
