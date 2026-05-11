@@ -16,6 +16,8 @@ header {
     align-items: center;
     justify-content: space-between;
     padding: 2em 1em;
+    max-width: 100vw;
+    box-sizing: border-box;
 }
 
 #bussiness-name {
@@ -53,6 +55,62 @@ header {
 
 #content {
     background-color: var(--white-background);
-    width: 100vw;
+    max-width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 1fr 6fr 1fr;
 }
 
+#base {
+    grid-column: 2;
+}
+
+.section {
+    height: 30vh;
+    max-width: 75vw;
+
+}
+
+#section-one {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+#section-two {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+}
+
+.subsection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.subsection div {
+    display: flex;
+    flex-direction: row;
+    justify-content: s
+
+}
+
+.subsection div div {
+    width: 200px;
+    height: 200px;
+    border-style: solid;
+    border-radius: 2em;
+    margin: 2em;
+}
+
+#welcome-message {
+    font-size: 48px;
+    font-weight: 500;
+
+
+}
