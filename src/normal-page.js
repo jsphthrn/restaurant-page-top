@@ -9,6 +9,8 @@ export let localeHome = {
         'subheader-bussiness': "Bussiness hours",
         'workdays': 'Mon - Fri: ',
         'weekends': 'Sat & Sun: ',
+        'hour-work': '10:00 am - 09:00 pm',
+        'hour-end': '10:00 am - 06:00 pm',
 
     },
 
@@ -21,6 +23,8 @@ export let localeHome = {
         'subheader-bussiness': "Horarios de servicio",
         'workdays': 'Lun - Vie: ',
         'weekends': 'Sáb - Dom: ',
+        'hour-work': '10:00 am - 09:00 pm',
+        'hour-end': '10:00 am - 06:00 pm',
 
     },
 
@@ -33,6 +37,8 @@ export let localeHome = {
         'subheader-bussiness': "営業時間",
         'workdays': '月 ~ 金: ',
         'weekends': '土 ~ 日: ',
+        'hour-work': '午前10時 - 午後9時',
+        'hour-end': '午前10時 - 午後6時',
 
     },
 
@@ -45,6 +51,8 @@ export let localeHome = {
         'subheader-bussiness': "营业时间",
         'workdays': '周一 ~ 周五: ',
         'weekends': '周六和周日: ',
+        'hour-work': '上午10小时 - 晚上9小时',
+        'hour-end': '上午10小时 - 下午6小时',
 
     },
 
@@ -92,6 +100,7 @@ export function deployHome (lang, container) {
     const elementContainer = document.createElement("div");
     elementContainer.appendChild(document.createElement("div"));
     elementContainer.appendChild(document.createElement("div"));
+    elementContainer.appendChild(document.createElement("div"));
 
     subsectionTwoOne.appendChild(elementContainer);
 
@@ -103,7 +112,13 @@ export function deployHome (lang, container) {
     subHeaderDrinks.textContent = localeHome[lang]["subheader-drinks"];
 
     subsectionTwoTwo.appendChild(subHeaderDrinks);
-    subsectionTwoTwo.appendChild(elementContainer);
+
+    const elementContainer1 = document.createElement("div");
+    elementContainer1.appendChild(document.createElement("div"));
+    elementContainer1.appendChild(document.createElement("div"));
+    elementContainer1.appendChild(document.createElement("div"));
+
+    subsectionTwoTwo.appendChild(elementContainer1);
 
 
     sectionTwo.appendChild(subsectionTwoTwo); 
@@ -115,10 +130,34 @@ export function deployHome (lang, container) {
     subHeaderBussiness.setAttribute("id","subheader-drinks");
     subHeaderBussiness.textContent = localeHome[lang]["subheader-bussiness"];
 
+    const sectionThree = document.createElement("div");
+    sectionThree.setAttribute("id", "section-three");
+    sectionThree.setAttribute("class", "subsection");
+
+    const bussinessPanel = document.createElement("div");
+    bussinessPanel.setAttribute("class", "panel");
+
+    const bussinessTable = document.createElement("table");
+    bussinessTable.setAttribute("id", "bussiness-table");
+    bussinessTable.appendChild(document.createElement("tr"));
+    bussinessTable.firstChild.appendChild(document.createElement("th"));
+    bussinessTable.firstChild.firstChild.textContent = localeHome[lang]["workdays"];
+    bussinessTable.firstChild.appendChild(document.createElement("td"));
+    bussinessTable.firstChild.lastChild.textContent = localeHome[lang]["hour-work"];
+    bussinessTable.appendChild(document.createElement("tr"));
+    bussinessTable.lastChild.appendChild(document.createElement("th"));
+    bussinessTable.lastChild.firstChild.textContent = localeHome[lang]["weekends"];
+    bussinessTable.lastChild.appendChild(document.createElement("td"));
+    bussinessTable.lastChild.lastChild.textContent = localeHome[lang]["hour-end"]
+    
+    bussinessPanel.appendChild(bussinessTable);
+
+    sectionThree.appendChild(subHeaderBussiness);
+    sectionThree.appendChild(bussinessPanel);
 
     base.appendChild(sectionOne);
     base.appendChild(sectionTwo);
-    base.appendChild(subHeaderBussiness);
+    base.appendChild(sectionThree);
 
     return base;
 
