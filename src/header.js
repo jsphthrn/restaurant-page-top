@@ -1,6 +1,6 @@
-import {deployTabs, pageHeader, currentPage, container, languages, parentElement } from './index';
+import {deployTabs, pageHeader, current, container, languages, parentElement } from './index';
 
-function deployHeader(lang, currentPage) {
+function deployHeader() {
 
     pageHeader.innerHTML = "";
 
@@ -16,20 +16,24 @@ function deployHeader(lang, currentPage) {
     const navigation = document.createElement("nav");
 
     let aux = [];
+    let k = 0
 
-    for (let i in localeNavigation[lang]) {
+    for (let i in localeNavigation[current['lang']]) {
 
-        aux[i] = document.createElement("button");
-        aux[i].setAttribute("id", "button-" + i);
-        aux[i].setAttribute("class", "navigation-button");
-        aux[i].textContent = localeNavigation[lang][i];
-        aux[i].addEventListener("click", () => {
+        aux[k] = document.createElement("button");
+        aux[k].setAttribute("id", "button-" + i);
+        aux[k].setAttribute("class", "navigation-button");
+        aux[k].textContent = localeNavigation[current['lang']][i];
+        aux[k].onclick = () => {
+            console.log(current['page']);
+            console.log(i);
+            current['page'] = i;
+            deployTabs ();
 
-            deployTabs (i, lang);
+        };
 
-        });
-
-        navigation.appendChild(aux[i]);
+        navigation.appendChild(aux[k]);
+        k++;
 
     }
 
@@ -50,15 +54,14 @@ function deployHeader(lang, currentPage) {
 
     }
 
-    selector.value = lang;
+    selector.value = current['lang'];
 
-    selector.addEventListener("change", (currentPage) => {
+    selector.addEventListener("change", () => {
 
-            
-        deployHeader(selector.value);
-        deployTabs(currentPage, selector.value, document.getElementById("content"));
-        parentElement.setAttribute("lang", selector.value);
-
+        current['lang'] = selector.value;
+        parentElement.setAttribute("lang", current['lang']);
+        refreshHeader();
+        deployTabs();
 
     });
 
@@ -112,5 +115,12 @@ const localeNavigation = {
     
 }
 
+function refreshHeader () {
+    let currentLaguage = parentElement.getAttribute("lang");
+    for (let i in localeNavigation[currentLaguage]) {
+        document.getElementById("button-" + i).textContent = localeNavigation[currentLaguage][i];
+    }
 
-export { deployHeader, localeNavigation, languages }
+}
+
+export { deployHeader, localeNavigation, refreshHeader}

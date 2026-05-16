@@ -1,3 +1,5 @@
+import { parentElement } from ".";
+
 export let localeHome = {
 
     'en': {
@@ -59,8 +61,10 @@ export let localeHome = {
 
 }
 
-export function deployHome (lang, container) {
+export function deployHome () {
 
+    let lang = parentElement.getAttribute("lang");
+    
     const base = document.createElement("div");
 
     base.setAttribute("id", "base");

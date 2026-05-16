@@ -2,36 +2,37 @@ import "./style.css";
 
 import { localeHome, deployHome } from "./home";
 
-import { deployHeader, localeNavigation, } from "./header";
+import { deployHeader, localeNavigation, refreshHeader } from "./header";
 
 /* import { deployMenu, localeMenu } from "./menu";*/ 
 
-function deployTabs (tab, lang, container) {
+function deployTabs () {
+    container.innerHTML = "";
 
-    switch (tab) {
+    switch (current['page']) {
         case "home":
-            currentPage = "home";
-            container.appendChild(deployHome(lang, container));
+            container.appendChild(deployHome());
             break;
 
         case "menu":
-            deployMenu(lang, container);
+            currentPage = "menu"
+            deployMenu();
             break;
         
         case "order":
-            deployOrder(lang, container);
+            deployOrder();
             break;
 
         case "check":
-            deployCheck(lang, container);
+            deployCheck();
             break;
 
         case "contact":
-            deployContacts(lang, container);
+            deployContacts();
             break;
 
         default:
-            deployHome(lang, container);
+            container.appendChild(deployHome());
             break;
     }
 
@@ -48,17 +49,19 @@ const languages = {
 
 }
 
-let currentPage = "home";
+
 
 const parentElement = document.getElementsByTagName("html")[0];
 
 let container = document.getElementById("content");
 
-deployHeader(parentElement.getAttribute("lang"));
+let current = {
+    'page': 'home',
+    'lang': parentElement.getAttribute("lang"),
+};
 
-container.innerHTML = "";
+deployHeader();
+deployTabs();
 
-container.appendChild(deployHome(parentElement.getAttribute("lang"), container));
-
-export {deployTabs, pageHeader, currentPage, parentElement, container, languages}
+export {deployTabs, pageHeader, current, parentElement, container, languages}
 
