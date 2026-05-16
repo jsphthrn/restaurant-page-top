@@ -1,83 +1,64 @@
 import "./style.css";
 
-import { localeHome, deployHomeHome, deployHome } from "./normal-page";
+import { localeHome, deployHome } from "./home";
 
+import { deployHeader, localeNavigation, } from "./header";
 
-const navigationMenu = document.getElementById("language-selection");
-navigationMenu.addEventListener("change", () => {
+/* import { deployMenu, localeMenu } from "./menu";*/ 
 
-    let aux = Object.keys(localeNavigation[navigationMenu.value]);
+function deployTabs (tab, lang, container) {
 
-    for (let i = 0; i < aux.length; i++) {
+    switch (tab) {
+        case "home":
+            currentPage = "home";
+            container.appendChild(deployHome(lang, container));
+            break;
 
-        document.getElementById("button-" + aux[i]).textContent = localeNavigation[navigationMenu.value][aux[i]];
+        case "menu":
+            deployMenu(lang, container);
+            break;
+        
+        case "order":
+            deployOrder(lang, container);
+            break;
 
+        case "check":
+            deployCheck(lang, container);
+            break;
+
+        case "contact":
+            deployContacts(lang, container);
+            break;
+
+        default:
+            deployHome(lang, container);
+            break;
     }
 
-    document.getElementsByTagName("html")[0].setAttribute("lang", navigationMenu.value);
+}
 
-    currentLanguage = navigationMenu.value;
+const pageHeader = document.getElementsByTagName("header")[0];
 
-    container.innerHTML = "";
-    container.appendChild(deployHome(currentLanguage));
+const languages = {
 
-});
+    'en': 'English',
+    'es': 'Español',
+    'ja': '日本語',
+    'zh-Hans': '中文 (简单)',
+
+}
 
 let currentPage = "home";
 
-let currentLanguage = document.getElementsByTagName("html")[0].getAttribute("lang");
-
-let localeNavigation = {
-
-    'en': {
-
-        'home': "HOME",
-        'menu': "MENU",
-        'order': "ORDER",
-        'check': "CHECK",
-        'contact': "CONTACT",
-
-    },
-
-    'es': {
-
-        'home': "INICIO",
-        'menu': "MENÚ",
-        'order': "ORDENAR",
-        'check': "CUENTA",
-        'contact': "CONTACTO",
-
-    },
-
-    'ja': {
-
-        'home': "ホーム",
-        'menu': "メニュー",
-        'order': "ご注文",
-        'check': "お支払い",
-        'contact': "連絡",
-
-    },
-
-    'zh-Hans': {
-
-        'home': "首页",
-        'menu': "菜单",
-        'order': "点餐",
-        'check': "结帐",
-        'contact': "联系",
-
-    },
-    
-}
+const parentElement = document.getElementsByTagName("html")[0];
 
 let container = document.getElementById("content");
 
+deployHeader(parentElement.getAttribute("lang"));
+
 container.innerHTML = "";
 
-container.appendChild(deployHome(currentLanguage, container));
+container.appendChild(deployHome(parentElement.getAttribute("lang"), container));
 
-
-console.log(localeNavigation["ja"]);
-
+export {deployTabs, pageHeader, currentPage, parentElement, container, languages}
 
