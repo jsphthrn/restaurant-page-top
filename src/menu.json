@@ -1,0 +1,174 @@
+{
+    "chashu-ramen": {
+
+        "id": "001",
+        "type": "dish",
+        "image_src": "./assets/chashu-ramen.jpg",
+        "popularity": 5,
+        "price": 110,
+
+        "en": {
+            "dish_title": "Chashu Ramen",
+            "sensitive_ingredients": "Soy, egg.",
+            "dish_description": "A dish random description goes here."
+        },
+        
+        "es": {
+            "dish_title": "Chashu Ramen",
+            "sensitive_ingredients": "Soya, huevo.",
+            "dish_description": "Descripción genérica va aquí."
+        },
+
+        "ja": {
+            "dish_title": "茶酒ラーメン",
+            "sensitive_ingredients": "大豆, 卵",
+            "dish_description": "普通なラーメンです。"
+        },
+
+        "zh-Hans": {
+            "dish_title": "茶树拉面",
+            "sensitive_ingredients": "大豆, 鸡蛋",
+            "dish_description": "普通的拉面"
+
+        }
+    },
+
+    "tonkotsu-ramen": {
+        "id": "002",
+        "type": "dish",
+        "image_src": "./assets/tonkotsu-ramen.jpg",
+        "popularity": 5,
+        "price": 130,
+
+        "en": {
+            "dish_title": "Tonkotsu Ramen",
+            "sensitive_ingredients": "Soy, egg.",
+            "dish_description": "A dish random description goes here."
+        },
+        
+        "es": {
+            "dish_title": "Tonkotsu Ramen",
+            "sensitive_ingredients": "Soya, huevo.",
+            "dish_description": "Descripción genérica va aquí."
+        },
+
+        "ja": {
+            "dish_title": "豚骨ラーメン",
+            "sensitive_ingredients": "大豆, 卵",
+            "dish_description": "普通なラーメンです。"
+        },
+
+        "zh-Hans": {
+            "dish_title": "豚骨拉面",
+            "sensitive_ingredients": "大豆, 鸡蛋",
+            "dish_description": "普通的拉面"
+
+        }
+        
+    },
+
+    "japanese-curry": {
+
+        "id": "003",
+        "type": "dish",
+        "image_src": "./assets/japanese-curry.jpg",
+        "popularity": 5,
+        "price": 125,
+
+        "en": {
+            "dish_title": "Japanese Curry",
+            "sensitive_ingredients": "Soy, egg.",
+            "dish_description": "A dish random description goes here."
+        },
+        
+        "es": {
+            "dish_title": "Curry Japonés",
+            "sensitive_ingredients": "Soya, huevo.",
+            "dish_description": "Descripción genérica va aquí."
+        },
+
+        "ja": {
+            "dish_title": "カレー",
+            "sensitive_ingredients": "大豆, 卵",
+            "dish_description": "日本のカレー。"
+        },
+
+        "zh-Hans": {
+            "dish_title": "日咖哩",
+            "sensitive_ingredients": "大豆, 鸡蛋",
+            "dish_description": "日本来自咖喱。"
+
+        }
+        
+    },
+
+    "black-coffee": {
+        "id": "101",
+        "type": "drink",
+        "image_src": "./assets/coffee-black.jpg",
+        "popularity": 3,
+        "price": 30,
+
+        "en": {
+            "dish_title": "Black Coffee",
+            "sensitive_ingredients": "Soft drink",
+            "description": "Black coffee, suggar free."
+        },
+        
+        "es": {
+            "dish_title": "Café (negro)",
+            "sensitive_ingredients": "Soft drink",
+            "dish_description": "Café negro, sin azúcar."
+        },
+
+        "ja": {
+            "dish_title": "コーヒー",
+            "sensitive_ingredients": "ソフトドリンク",
+            "dish_description": "無糖コーヒー"
+        },
+
+        "zh-Hans": {
+            "dish_title": "黑咖啡",
+            "sensitive_ingredients": "无酒",
+            "dish_description": "五塘咖啡。"
+
+        }
+        
+    },
+
+    "orion-beer": {
+
+        "id": "102",
+        "type": "drink",
+        "image_src": "./assets/orion-beer.jpg",
+        "popularity": 5,
+        "price": 60,
+
+        "en": {
+            "dish_title": "Orion beer (355 mL)",
+            "sensitive_ingredients": "Alcoholic",
+            "description": "Draft beer straight from Okinawa, Japan."
+        },
+        
+        "es": {
+            "dish_title": "Cerveza Orion (355 mL)",
+            "sensitive_ingredients": "Bebida alcóholica",
+            "dish_description": "Cerveza importada de Okinawa, Japón."
+        },
+
+        "ja": {
+            "dish_title": "オリオンビール (355 mL)",
+            "sensitive_ingredients": "お酒",
+            "dish_description": "沖縄の最人気生ビール。"
+        },
+
+        "zh-Hans": {
+            "dish_title": "奧利恩啤酒 (355 mL)",
+            "sensitive_ingredients": "有酒",
+            "dish_description": "冲绳来自的很有名啤酒。"
+
+        }
+        
+    }
+
+}

@@ -4,7 +4,9 @@ import { localeHome, deployHome } from "./home";
 
 import { deployHeader, localeNavigation, refreshHeader } from "./header";
 
-/* import { deployMenu, localeMenu } from "./menu";*/ 
+import { deployContacts, localeContact } from "./contact";
+
+import { deployMenu, menu} from "./menu";
 
 function deployTabs () {
     container.innerHTML = "";
@@ -15,20 +17,19 @@ function deployTabs () {
             break;
 
         case "menu":
-            currentPage = "menu"
-            deployMenu();
+            container.appendChild(deployMenu());
             break;
         
         case "order":
-            deployOrder();
+            container.appendChild(deployOrder());
             break;
 
         case "check":
-            deployCheck();
+            container.appendChild(deployCheck());
             break;
 
         case "contact":
-            deployContacts();
+            container.appendChild(deployContacts());
             break;
 
         default:
@@ -48,8 +49,6 @@ const languages = {
     'zh-Hans': '中文 (简单)',
 
 }
-
-
 
 const parentElement = document.getElementsByTagName("html")[0];
 

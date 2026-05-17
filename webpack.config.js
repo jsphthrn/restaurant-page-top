@@ -1,5 +1,6 @@
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import path from "node:path";
+import json5 from 'json5';
 
 export default {
     
@@ -50,6 +51,14 @@ export default {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,
                 type: "asset/resource",
 
+            },
+
+            {
+                test: /\.json5$/i,
+                type: 'json',
+                parser: {
+                    parse: json5.parse,
+                },
             },
 
         ],
