@@ -9,7 +9,7 @@ function deployMenu() {
     
     const dishSubsection = document.createElement("div");
     dishSubsection.setAttribute("id", "dish-container");
-    dishSubsection.setAttribute("class", "subsection");
+    dishSubsection.setAttribute("class", "subsection-menu");
 
     const dishTitle = document.createElement("div");
     dishTitle.setAttribute("class", "subheader");
@@ -22,7 +22,7 @@ function deployMenu() {
 
     const drinkSubsection = document.createElement("div");
     drinkSubsection.setAttribute("id", "drink-container");
-    drinkSubsection.setAttribute("class", "subsection");
+    drinkSubsection.setAttribute("class", "subsection-menu");
 
     const drinkTitle = document.createElement("div");
     drinkTitle.setAttribute('class', 'subheader');

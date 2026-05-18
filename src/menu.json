@@ -112,7 +112,7 @@
         "en": {
             "dish_title": "Black Coffee",
             "sensitive_ingredients": "Soft drink",
-            "description": "Black coffee, suggar free."
+            "dish_description": "Black coffee, suggar free."
         },
         
         "es": {
@@ -147,7 +147,7 @@
         "en": {
             "dish_title": "Orion beer (355 mL)",
             "sensitive_ingredients": "Alcoholic",
-            "description": "Draft beer straight from Okinawa, Japan."
+            "dish_description": "Draft beer straight from Okinawa, Japan."
         },
         
         "es": {
@@ -166,6 +166,76 @@
             "dish_title": "奧利恩啤酒 (355 mL)",
             "sensitive_ingredients": "有酒",
             "dish_description": "冲绳来自的很有名啤酒。"
+
+        }
+        
+    },
+
+    "red-chilaquiles": {
+
+        "id": "004",
+        "type": "dish",
+        "image_src": "./assets/red-chilaquiles.jpg",
+        "popularity": 5,
+        "price": 95,
+
+        "en": {
+            "dish_title": "Red chilaquiles",
+            "sensitive_ingredients": "Mid-spicy",
+            "dish_description": "Tortilla totops soaked in red sauce."
+        },
+        
+        "es": {
+            "dish_title": "Chilaquiles rojos",
+            "sensitive_ingredients": "Picor medio.",
+            "dish_description": "Totopos cubiertos de salsa roja."
+        },
+
+        "ja": {
+            "dish_title": "アカチラキレス",
+            "sensitive_ingredients": "辛さ：中",
+            "dish_description": "メキシコからアカソースで沈めるトトポス"
+        },
+
+        "zh-Hans": {
+            "dish_title": "红色漆拉奎莱斯",
+            "sensitive_ingredients": "辣度：中",
+            "dish_description": "墨西哥来自的红辣酱得演玉米片"
+
+        }
+        
+    },
+
+    "green-chilaquiles": {
+
+        "id": "005",
+        "type": "dish",
+        "image_src": "./assets/green-chilaquiles.jpg",
+        "popularity": 5,
+        "price": 95,
+
+        "en": {
+            "dish_title": "Green chilaquiles",
+            "sensitive_ingredients": "Low spicy",
+            "dish_description": "Tortilla totops soaked in green sauce."
+        },
+        
+        "es": {
+            "dish_title": "Chilaquiles verdes",
+            "sensitive_ingredients": "picor bajo",
+            "dish_description": "Totopos cubiertos de salsa verde."
+        },
+
+        "ja": {
+            "dish_title": "ミドリチラキレス",
+            "sensitive_ingredients": "辛さ：低",
+            "dish_description": "メキシコからミドリソースで沈めるトトポス"
+        },
+
+        "zh-Hans": {
+            "dish_title": "绿色漆拉奎莱斯",
+            "sensitive_ingredients": "辣度：低",
+            "dish_description": "墨西哥来自的绿辣酱得演玉米片"
 
         }
         

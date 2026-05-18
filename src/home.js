@@ -102,9 +102,21 @@ export function deployHome () {
     subsectionTwoOne.appendChild(subHeaderDishes);
 
     const elementContainer = document.createElement("div");
-    elementContainer.appendChild(document.createElement("div"));
-    elementContainer.appendChild(document.createElement("div"));
-    elementContainer.appendChild(document.createElement("div"));
+    elementContainer.setAttribute("class", "element-container");
+
+    const popularDish1 = document.createElement("div");
+    popularDish1.setAttribute("class", "popular");
+
+    const popularDish2 = document.createElement("div");
+    popularDish2.setAttribute("class", "popular");
+
+    const popularDish3 = document.createElement("div");
+    popularDish3.setAttribute("class", "popular");
+
+
+    elementContainer.appendChild(popularDish1);
+    elementContainer.appendChild(popularDish2);
+    elementContainer.appendChild(popularDish3);
 
     subsectionTwoOne.appendChild(elementContainer);
 
@@ -118,9 +130,21 @@ export function deployHome () {
     subsectionTwoTwo.appendChild(subHeaderDrinks);
 
     const elementContainer1 = document.createElement("div");
-    elementContainer1.appendChild(document.createElement("div"));
-    elementContainer1.appendChild(document.createElement("div"));
-    elementContainer1.appendChild(document.createElement("div"));
+    elementContainer1.setAttribute("class", "element-container");
+
+    const popularDrink1 = document.createElement("div");
+    popularDrink1.setAttribute("class", "popular");
+
+    const popularDrink2 = document.createElement("div");
+    popularDrink2.setAttribute("class", "popular");
+
+    const popularDrink3 = document.createElement("div");
+    popularDrink3.setAttribute("class", "popular");
+
+
+    elementContainer1.appendChild(popularDrink1);
+    elementContainer1.appendChild(popularDrink2);
+    elementContainer1.appendChild(popularDrink3);
 
     subsectionTwoTwo.appendChild(elementContainer1);
 
