@@ -56,7 +56,12 @@ let container = document.getElementById("content");
 
 let current = {
     'page': 'home',
+    'user': 'admin',
     'lang': parentElement.getAttribute("lang"),
+    'cart': {
+        'selected': {},
+        'ordered': {},
+    },
 };
 
 deployHeader();

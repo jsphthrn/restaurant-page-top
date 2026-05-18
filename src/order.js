@@ -1,32 +1,32 @@
 import { parentElement } from ".";
 
-export let localeHome = {
+export let localeOrder = {
 
     'en': {
 
-        'welcome-message': "Welcome!",
-        'sub-message': "Please make an order by checking the menu and select the desired items.",
-        'subheader-dishes': "Popular dishes",
-        'subheader-drinks': "Popular drinks",
-        'subheader-bussiness': "Bussiness hours",
-        'workdays': 'Mon - Fri: ',
-        'weekends': 'Sat & Sun: ',
-        'hour-work': '10:00 am - 09:00 pm',
-        'hour-end': '10:00 am - 06:00 pm',
+        'cart': "Current cart",
+        'make-order': "Make order",
+        'bill': "Current bill",
+        'item': "Item",
+        'unit': "UOM",
+        'unit-price': 'Unit price',
+        'extended-price': 'Extended price',
+        'total': 'Total: ',
+        'pay': 'Pay bill',
 
     },
 
     'es': {
 
-        'welcome-message': "¡Bienvenidos!",
-        'sub-message': "Para ordernar, por favor navegar a la pestaña Menú y seleccionar los alimentos deseados.",
-        'subheader-dishes': "Platillos populares",
-        'subheader-drinks': "Bebidas populares",
-        'subheader-bussiness': "Horarios de servicio",
-        'workdays': 'Lun - Vie: ',
-        'weekends': 'Sáb - Dom: ',
-        'hour-work': '10:00 am - 09:00 pm',
-        'hour-end': '10:00 am - 06:00 pm',
+        'cart': "Carrito",
+        'make-order': "Ordernar",
+        'bill': "Cuenta",
+        'item': "Ítem",
+        'unit': "UDM",
+        'unit-price': 'Precio unitario',
+        'extended-price': 'Subtotal',
+        'total': 'Total: ',
+        'pay': 'Pagar',
 
     },
 

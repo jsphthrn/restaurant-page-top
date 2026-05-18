@@ -78,7 +78,7 @@ const localeNavigation = {
         'home': "HOME",
         'menu': "MENU",
         'order': "ORDER",
-        'check': "CHECK",
+    /*    'check': "CHECK", */
         'contact': "CONTACT",
 
     },
@@ -88,7 +88,7 @@ const localeNavigation = {
         'home': "INICIO",
         'menu': "MENÚ",
         'order': "ORDENAR",
-        'check': "CUENTA",
+    /*    'check': "CUENTA", */
         'contact': "CONTACTO",
 
     },
@@ -98,7 +98,7 @@ const localeNavigation = {
         'home': "ホーム",
         'menu': "メニュー",
         'order': "ご注文",
-        'check': "お支払い",
+    /*    'check': "お支払い", */
         'contact': "連絡",
 
     },
@@ -108,7 +108,7 @@ const localeNavigation = {
         'home': "首页",
         'menu': "菜单",
         'order': "点餐",
-        'check': "结帐",
+    /*    'check': "结帐", */ 
         'contact': "联系",
 
     },
