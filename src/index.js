@@ -4,7 +4,7 @@ import { localeHome, deployHome } from "./home";
 
 import { deployHeader, localeNavigation, refreshHeader } from "./header";
 
-import { deployContacts, localeContact } from "./contact";
+import { deployOrder, localeOrder } from "./order";
 
 import { deployMenu, menu} from "./menu";
 
