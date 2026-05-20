@@ -36,6 +36,7 @@ export let localeOrder = {
         'total': 'Total: ',
         'pay': 'Pay bill',
         'order-made': 'Order received!',
+        'bill-paid': 'Payment received! Please visit us again. Thank you!',
 
     },
 
@@ -51,6 +52,7 @@ export let localeOrder = {
         'total': 'Total: ',
         'pay': 'Pagar',
         'order-made': '¡Orden recibida!',
+        'bill-paid': '¡Pago recibido! Muchas gracias por su visita, ¡Vuelva pronto!',
 
     },
 
@@ -66,6 +68,7 @@ export let localeOrder = {
         'total': '账单: ',
         'pay': '支付',
         'order-made': '下订单了！',
+        'bill-paid': '谢谢，下订单支付了! 请很少久回来!',
 
     },
 
@@ -81,6 +84,7 @@ export let localeOrder = {
         'total': '合計: ',
         'pay': 'お支払う',
         'order-made': 'ご注文を受けました！',
+        'bill-paid': 'お支払を受けました！　本日のいただきありがとうございます。',
 
     },
 
@@ -300,12 +304,12 @@ export function deployOrder () {
     makePayment.textContent = localeOrder[current["lang"]]["pay"];
     makePayment.onclick = () => {
 
+        current["cart"]["ordered"] = {};
+        alert(localeOrder[current["lang"]]["bill-paid"]);
         deployTabs();
 
     }
-
-
-
+    
     const base = document.createElement("div");
 
     base.appendChild(cartTitle);

@@ -8,6 +8,8 @@ import { deployOrder, localeOrder } from "./order";
 
 import { deployMenu, menu} from "./menu";
 
+import { deployContacts } from "./contact";
+
 function deployTabs () {
     container.innerHTML = "";
 
