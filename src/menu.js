@@ -1,4 +1,4 @@
-import {current} from "./index.js";
+import {current, container} from "./index.js";
 import menu from "./menu.json";
 
 const localeMenu = {
@@ -42,17 +42,13 @@ const localeMenu = {
 };
 
 function deployMenu() {
-
-    const base = document.createElement("div");
-
-    base.setAttribute("id", "base");
     
     const dishSubsection = document.createElement("div");
     dishSubsection.setAttribute("id", "dish-container");
-    dishSubsection.setAttribute("class", "subsection-menu");
+    dishSubsection.setAttribute("class", "section");
 
     const dishTitle = document.createElement("div");
-    dishTitle.setAttribute("class", "subheader");
+    dishTitle.setAttribute("class", "subheader " + current["lang"]);
     dishTitle.textContent = localeMenu[current["lang"]]["dish-title"];
 
     dishSubsection.appendChild(dishTitle);
@@ -62,10 +58,10 @@ function deployMenu() {
 
     const drinkSubsection = document.createElement("div");
     drinkSubsection.setAttribute("id", "drink-container");
-    drinkSubsection.setAttribute("class", "subsection-menu");
+    drinkSubsection.setAttribute("class", "section");
 
     const drinkTitle = document.createElement("div");
-    drinkTitle.setAttribute('class', 'subheader');
+    drinkTitle.setAttribute('class', 'subheader ' + current["lang"]);
     drinkTitle.textContent = localeMenu[current["lang"]]["drink-title"];
 
     drinkSubsection.appendChild(drinkTitle);
@@ -85,10 +81,10 @@ function deployMenu() {
 
         const titles = document.createElement("div");
         titles.textContent = menu[entry][current["lang"]]["dish_title"];
-        titles.setAttribute("class", "entry-title");
+        titles.setAttribute("class", "entry-title " + current["lang"]);
 
         const descs = document.createElement("div");
-        descs.setAttribute("class", "entry-desc");
+        descs.setAttribute("class", "entry-desc " + current["lang"]);
         descs.textContent = menu[entry][current["lang"]]["dish_description"];
 
         const inds = document.createElement("div");
@@ -105,7 +101,7 @@ function deployMenu() {
         count.textContent = 1;
 
         const addCart = document.createElement("button");
-        addCart.setAttribute("class", "add-cart-button");
+        addCart.setAttribute("class", "action-button");
         addCart.setAttribute("id", "add-" + entry);
         addCart.onclick = () => {
 
@@ -130,7 +126,7 @@ function deployMenu() {
         const plus = document.createElement("button");
         plus.textContent = "+";
         plus.setAttribute("id", "plus-" + entry);
-        plus.setAttribute("class", "control-button");
+        plus.setAttribute("class", "action-button");
         plus.onclick = () => {
 
             document.getElementById(entry + "-counter").textContent = (document.getElementById(entry + "-counter").textContent * 1) + 1;
@@ -140,7 +136,7 @@ function deployMenu() {
         const minus = document.createElement("button");
         minus.textContent = "-";
         minus.setAttribute("id", "minus-" + entry);
-        minus.setAttribute("class", "control-button");
+        minus.setAttribute("class", "action-button");
         minus.onclick = () => {
 
             document.getElementById(entry + "-counter").textContent -= 1;
@@ -173,11 +169,8 @@ function deployMenu() {
     dishSubsection.appendChild(dishContainer);
     drinkSubsection.appendChild(drinkContainer);
 
-    base.appendChild(dishSubsection);
-    base.appendChild(drinkSubsection);
-
-    return base;
-
+    container.appendChild(dishSubsection);
+    container.appendChild(drinkSubsection);
 
 }
 

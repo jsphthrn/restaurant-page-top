@@ -1,4 +1,4 @@
-import { parentElement, current, deployTabs } from ".";
+import { parentElement, current, deployTabs, container } from ".";
 
 import { menu } from "./menu";
 
@@ -92,6 +92,12 @@ export let localeOrder = {
 }
 
 export function deployOrder () {
+
+    const sectionOne = document.createElement("div");
+    sectionOne.setAttribute("class", "section")
+
+    const sectionTwo = document.createElement("div");
+    sectionTwo.setAttribute("class", "section");
 
     const cartTitle = document.createElement("div");
     cartTitle.setAttribute("class", "subheader");
@@ -309,16 +315,17 @@ export function deployOrder () {
         deployTabs();
 
     }
-    
-    const base = document.createElement("div");
 
-    base.appendChild(cartTitle);
-    base.appendChild(cartTable);
-    base.appendChild(makeOrder);
-    base.appendChild(billTitle);
-    base.appendChild(billTable);
-    base.appendChild(makePayment);
+    sectionOne.appendChild(cartTitle);
+    sectionOne.appendChild(cartTable);
+    sectionOne.appendChild(makeOrder);
 
-    return base;
+    container.appendChild(sectionOne);
+
+    sectionTwo.appendChild(billTitle);
+    sectionTwo.appendChild(billTable);
+    sectionTwo.appendChild(makePayment);
+
+    container.appendChild(sectionTwo);
 
 }

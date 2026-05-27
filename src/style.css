@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP&family=Noto+Sans+SC:wght@100..900&family=Noto+Serif+SC:wght@200..900&family=Zen+Old+Mincho&display=swap');
 
 
 * {
@@ -8,6 +9,28 @@
     --white-background: #f8f8f8;
     --reduced-black: #343a40;
     --grey-background: #f4f4f4;
+}
+
+.ja.subheader, .ja.header, .ja.entry-title {
+    font-family: 'Zen Old Mincho', serif;
+}
+
+.ja.body, .ja.entry-desc {
+    font-family: 'IBM Plex Sans JP', sans-serif;
+}
+
+.zh-Hans.subheader, .zh-Hans.header, .zh-Hans.entry-title {
+    font-family: 'Noto Serif SC', serif;
+}
+
+.zh-Hans.body, .zh-Hans.entry-desc {
+    font-family: 'Noto Sans SC', sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
 }
 
 header {
@@ -57,20 +80,23 @@ header {
 #content {
     background-color: var(--grey-background);
     max-width: 100vw;
-    height: 100vh;
+    min-height: calc(100vh - 60px);
     box-sizing: border-box;
-    display: grid;
-    grid-template-columns: 1fr 6fr 1fr;
-}
-
-#base {
-    grid-column: 2;
-    background-color: var(--white-background);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .section {
-    height: 32.5vh;
-    max-width: 80vw;
+    height: auto;
+    padding: 2.5em 0;
+    max-width: 90vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
 }
 
 #section-one {
@@ -84,6 +110,13 @@ header {
 #section-two {
     display: grid;
     grid-template-columns: 1fr 1fr;
+
+}
+
+#section-three {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
 }
 
@@ -112,8 +145,6 @@ header {
 #welcome-message {
     font-size: 3em;
     font-weight: 500;
-
-
 }
 
 .subheader {
@@ -123,9 +154,9 @@ header {
 }
 
 .panel {
-    width: 60%;
-    height: 8em;
     border-style: solid;
+    width: auto;
+    padding: 2em;
 }
 
 #bussiness-table tr * {
@@ -135,8 +166,9 @@ header {
 
 .menu-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 15vw));
-    gap: 2em;
+    max-width: 85vw;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 10vw));
+    gap: 1em;
 }
 
 .entry {
@@ -147,12 +179,46 @@ header {
     align-items: center;
     border-radius: 1px;
     border-style: solid;
-    height: 200px;
+    height: auto;
 
 }
 
 .subsection-menu {
-    display: flex;
-    flex-direction: column;
+    display: grid;
     
+}
+
+footer {
+
+    background-color: var(--main-black);
+
+
+}
+
+table {
+    border-collapse: collapse;
+    justify-content: center;
+} 
+
+tr {
+
+    border-width: 1px;
+    border-color: var(--reduced-black);
+    border-style: inset;
+}
+
+th {
+
+    background-color: #dddddd;
+
+
+}
+
+td, th {
+    border-width: 1px;
+    border-color: var(--reduced-black);
+    border-collapse: separate;
+    border-style: solid;
+    padding: 1.5em 2em;
+    text-align: center;
 }

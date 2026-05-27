@@ -1,4 +1,4 @@
-import { parentElement } from ".";
+import { parentElement, container, current } from ".";
 
 export let localeHome = {
 
@@ -33,7 +33,7 @@ export let localeHome = {
     'ja': {
 
         'welcome-message': "いらっしゃいませ!",
-        'sub-message': "Please make an order by checking the menu and select the desired items.",
+        'sub-message': "ご注文を選べのはメニューのターブに入って、アイテムに選べ下さい。",
         'subheader-dishes': "人気な食べ物",
         'subheader-drinks': "人気な飲み物",
         'subheader-bussiness': "営業時間",
@@ -64,24 +64,22 @@ export let localeHome = {
 export function deployHome () {
 
     let lang = parentElement.getAttribute("lang");
-    
-    const base = document.createElement("div");
-
-    base.setAttribute("id", "base");
 
     const sectionOne = document.createElement("div");
 
     const welcomeMessage = document.createElement("div");
     welcomeMessage.setAttribute("id", "welcome-message");
     welcomeMessage.textContent = localeHome[lang]["welcome-message"]
+    welcomeMessage.setAttribute("class", "header " + current["lang"]);
     
     const subMessage = document.createElement("div");
     subMessage.setAttribute("id", "sub-message");
     subMessage.textContent = localeHome[lang]["sub-message"];
+    subMessage.setAttribute("class", "body " + current["lang"]);
 
     sectionOne.appendChild(welcomeMessage);
     sectionOne.appendChild(subMessage);
-    sectionOne.setAttribute("class","section");
+    sectionOne.setAttribute("class", "section");
     sectionOne.setAttribute("id","section-one");
     
     const sectionTwo = document.createElement("div");
@@ -95,7 +93,7 @@ export function deployHome () {
     subsectionTwoTwo.setAttribute("class", "subsection");
 
     const subHeaderDishes = document.createElement("div");
-    subHeaderDishes.setAttribute("class","subheader");
+    subHeaderDishes.setAttribute("class","subheader " + current["lang"]);
     subHeaderDishes.setAttribute("id","subheader-dishes");
     subHeaderDishes.textContent = localeHome[lang]["subheader-dishes"];
 
@@ -123,7 +121,7 @@ export function deployHome () {
     sectionTwo.appendChild(subsectionTwoOne);    
 
     const subHeaderDrinks = document.createElement("div");
-    subHeaderDrinks.setAttribute("class", "subheader");
+    subHeaderDrinks.setAttribute("class", "subheader " + current["lang"]);
     subHeaderDrinks.setAttribute("id", "subheader-drinks");
     subHeaderDrinks.textContent = localeHome[lang]["subheader-drinks"];
 
@@ -154,13 +152,13 @@ export function deployHome () {
     sectionTwo.setAttribute("class", "section")
 
     const subHeaderBussiness = document.createElement("div");
-    subHeaderBussiness.setAttribute("class","subheader");
+    subHeaderBussiness.setAttribute("class","subheader " + current["lang"]);
     subHeaderBussiness.setAttribute("id","subheader-drinks");
     subHeaderBussiness.textContent = localeHome[lang]["subheader-bussiness"];
 
     const sectionThree = document.createElement("div");
     sectionThree.setAttribute("id", "section-three");
-    sectionThree.setAttribute("class", "subsection");
+    sectionThree.setAttribute("class", "section");
 
     const bussinessPanel = document.createElement("div");
     bussinessPanel.setAttribute("class", "panel");
@@ -170,23 +168,25 @@ export function deployHome () {
     bussinessTable.appendChild(document.createElement("tr"));
     bussinessTable.firstChild.appendChild(document.createElement("th"));
     bussinessTable.firstChild.firstChild.textContent = localeHome[lang]["workdays"];
+    bussinessTable.firstChild.firstChild.setAttribute("class", "body " + current["lang"]);
     bussinessTable.firstChild.appendChild(document.createElement("td"));
     bussinessTable.firstChild.lastChild.textContent = localeHome[lang]["hour-work"];
+    bussinessTable.firstChild.lastChild.setAttribute("class", "body " + current["lang"]);
     bussinessTable.appendChild(document.createElement("tr"));
     bussinessTable.lastChild.appendChild(document.createElement("th"));
     bussinessTable.lastChild.firstChild.textContent = localeHome[lang]["weekends"];
+    bussinessTable.lastChild.firstChild.setAttribute("class", "body " + current["lang"]);
     bussinessTable.lastChild.appendChild(document.createElement("td"));
-    bussinessTable.lastChild.lastChild.textContent = localeHome[lang]["hour-end"]
+    bussinessTable.lastChild.lastChild.textContent = localeHome[lang]["hour-end"];
+    bussinessTable.lastChild.lastChild.setAttribute("class", "body " + current["lang"]);
     
     bussinessPanel.appendChild(bussinessTable);
 
     sectionThree.appendChild(subHeaderBussiness);
     sectionThree.appendChild(bussinessPanel);
 
-    base.appendChild(sectionOne);
-    base.appendChild(sectionTwo);
-    base.appendChild(sectionThree);
-
-    return base;
+    container.appendChild(sectionOne);
+    container.appendChild(sectionTwo);
+    container.appendChild(sectionThree);
 
 }

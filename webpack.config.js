@@ -48,7 +48,9 @@ export default {
 
             {
 
-                test: /\.(png|svg|jpg|jpeg|gif)$/i,
+
+                test: /^\/assets\/[^\/]+\.(png|svg|jpg|jpeg|gif)$/i,
+                // test: /\.(png|svg|jpg|jpeg|gif)$/i,
                 type: "asset/resource",
 
             },

@@ -10,32 +10,34 @@ import { deployMenu, menu} from "./menu";
 
 import { deployContacts } from "./contact";
 
+import { localeFooter, deployFooter, refreshFooter } from "./footer";
+ 
 function deployTabs () {
     container.innerHTML = "";
 
     switch (current['page']) {
         case "home":
-            container.appendChild(deployHome());
+            deployHome();
             break;
 
         case "menu":
-            container.appendChild(deployMenu());
+            deployMenu();
             break;
         
         case "order":
-            container.appendChild(deployOrder());
+            deployOrder();
             break;
 
         case "check":
-            container.appendChild(deployCheck());
+            deployCheck();
             break;
 
         case "contact":
-            container.appendChild(deployContacts());
+            deployContacts();
             break;
 
         default:
-            container.appendChild(deployHome());
+            deployHome();
             break;
     }
 
@@ -68,6 +70,7 @@ let current = {
 
 deployHeader();
 deployTabs();
+deployFooter();
 
 export {deployTabs, pageHeader, current, parentElement, container, languages}
 
