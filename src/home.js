@@ -146,7 +146,6 @@ export function deployHome () {
 
     subsectionTwoTwo.appendChild(elementContainer1);
 
-
     sectionTwo.appendChild(subsectionTwoTwo); 
     sectionTwo.setAttribute("id","section-two");
     sectionTwo.setAttribute("class", "section")
@@ -185,8 +184,14 @@ export function deployHome () {
     sectionThree.appendChild(subHeaderBussiness);
     sectionThree.appendChild(bussinessPanel);
 
-    container.appendChild(sectionOne);
-    container.appendChild(sectionTwo);
-    container.appendChild(sectionThree);
+    const home = document.createElement("div");
+    home.setAttribute("id", "home");
+    home.setAttribute("class", "page-content");
+
+    home.appendChild(sectionOne);
+    home.appendChild(sectionTwo);
+    home.appendChild(sectionThree);
+
+    container.appendChild(home);
 
 }

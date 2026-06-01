@@ -1,5 +1,6 @@
 import {current, container} from "./index.js";
-import menu from "./menu.json";
+import menu_content from "./menu.json";
+
 
 const localeMenu = {
 
@@ -41,8 +42,17 @@ const localeMenu = {
 
 };
 
+let menuImages = {};
+
+for (let i in menu_content) {
+
+    menuImages[i] = require(`./assets/food/${menu_content[i]["image_src"]}`);
+
+    console.log(menuImages);
+}
+
 function deployMenu() {
-    
+
     const dishSubsection = document.createElement("div");
     dishSubsection.setAttribute("id", "dish-container");
     dishSubsection.setAttribute("class", "section");
@@ -70,29 +80,30 @@ function deployMenu() {
     drinkContainer.setAttribute("class", "menu-container");
 
     
-    for (let entry in menu) {
+    for (let entry in menu_content) {
 
         const entries = document.createElement("div");
         entries.setAttribute("class", "entry");
         entries.setAttribute("id", entry);
 
         const images = document.createElement("img");
-        images.setAttribute("src", menu[entry]["image_src"]);
+        images.setAttribute("class", "dish-image");
+        images.src = menuImages[entry];
 
         const titles = document.createElement("div");
-        titles.textContent = menu[entry][current["lang"]]["dish_title"];
+        titles.textContent = menu_content[entry][current["lang"]]["dish_title"];
         titles.setAttribute("class", "entry-title " + current["lang"]);
 
         const descs = document.createElement("div");
         descs.setAttribute("class", "entry-desc " + current["lang"]);
-        descs.textContent = menu[entry][current["lang"]]["dish_description"];
+        descs.textContent = menu_content[entry][current["lang"]]["dish_description"];
 
         const inds = document.createElement("div");
-        inds.textContent = menu[entry][current["lang"]]["sensitive_ingredients"];
+        inds.textContent = menu_content[entry][current["lang"]]["sensitive_ingredients"];
         inds.setAttribute("class", "entry-ind");
 
         const prices = document.createElement("div");
-        prices.textContent = menu[entry]["price"] + " MXN";
+        prices.textContent = menu_content[entry]["price"] + " MXN";
         prices.setAttribute("class", "entry-price");
 
         const count = document.createElement("div");
@@ -154,7 +165,7 @@ function deployMenu() {
         entries.appendChild(count);
         entries.appendChild(addCart);
 
-        if (menu[entry]["type"] === "dish") {
+        if (menu_content[entry]["type"] === "dish") {
             
             dishContainer.appendChild(entries);
 
@@ -169,9 +180,15 @@ function deployMenu() {
     dishSubsection.appendChild(dishContainer);
     drinkSubsection.appendChild(drinkContainer);
 
-    container.appendChild(dishSubsection);
-    container.appendChild(drinkSubsection);
+    const menu = document.createElement("div");
+    menu.setAttribute("id", "menu");
+    menu.setAttribute("class", "page-content");
+
+    menu.appendChild(dishSubsection);
+    menu.appendChild(drinkSubsection);
+
+    container.appendChild(menu);
 
 }
 
-export { deployMenu, menu };
+export { deployMenu, menu_content };

@@ -3,7 +3,7 @@
 
         "id": "001",
         "type": "dish",
-        "image_src": "./assets/chashu-ramen.jpg",
+        "image_src": "chashu-ramen.jpg",
         "popularity": 5,
         "price": 110,
 
@@ -36,7 +36,7 @@
     "tonkotsu-ramen": {
         "id": "002",
         "type": "dish",
-        "image_src": "./assets/tonkotsu-ramen.jpg",
+        "image_src": "tonkotsu-ramen.jpg",
         "popularity": 5,
         "price": 130,
 
@@ -71,7 +71,7 @@
 
         "id": "003",
         "type": "dish",
-        "image_src": "./assets/japanese-curry.jpg",
+        "image_src": "japanese-curry.jpeg",
         "popularity": 5,
         "price": 125,
 
@@ -105,7 +105,7 @@
     "black-coffee": {
         "id": "101",
         "type": "drink",
-        "image_src": "./assets/coffee-black.jpg",
+        "image_src": "black-coffee.png",
         "popularity": 3,
         "price": 30,
 
@@ -140,7 +140,7 @@
 
         "id": "102",
         "type": "drink",
-        "image_src": "./assets/orion-beer.jpg",
+        "image_src": "orion-beer.jpg",
         "popularity": 5,
         "price": 60,
 
@@ -175,7 +175,7 @@
 
         "id": "004",
         "type": "dish",
-        "image_src": "./assets/red-chilaquiles.jpg",
+        "image_src": "red-chilaquiles.jpeg",
         "popularity": 5,
         "price": 95,
 
@@ -210,7 +210,7 @@
 
         "id": "005",
         "type": "dish",
-        "image_src": "./assets/green-chilaquiles.jpg",
+        "image_src": "green-chilaquiles.jpeg",
         "popularity": 5,
         "price": 95,
 
@@ -240,5 +240,4 @@
         }
         
     }
-
 }

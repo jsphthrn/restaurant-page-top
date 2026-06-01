@@ -1,12 +1,12 @@
 import { parentElement, current, deployTabs, container } from ".";
 
-import { menu } from "./menu";
+import { menu_content } from "./menu";
 
 function calcCart () {
 
     let sum = 0;
     for (let i in current["cart"]["selected"]) {
-        sum += (current["cart"]["selected"][i] * menu[i]["price"]);
+        sum += (current["cart"]["selected"][i] * menu_content[i]["price"]);
     }
     return sum;
 
@@ -16,7 +16,7 @@ function calcBill () {
 
     let sum = 0;
     for (let i in current["cart"]["ordered"]) {
-        sum += (current["cart"]["ordered"][i] * menu[i]["price"]);
+        sum += (current["cart"]["ordered"][i] * menu_content[i]["price"]);
     }
     return sum;
 
@@ -143,16 +143,16 @@ export function deployOrder () {
         k++;
 
         const itemName = document.createElement("td");
-        itemName.textContent = menu[item][current["lang"]]["dish_title"];
+        itemName.textContent = menu_content[item][current["lang"]]["dish_title"];
 
         const itemQuantity = document.createElement("td");
         itemQuantity.textContent = current["cart"]["selected"][item];
 
         const itemUnitPrice = document.createElement("td");
-        itemUnitPrice.textContent = menu[item]["price"];
+        itemUnitPrice.textContent = menu_content[item]["price"];
 
         const itemExtendedPrice = document.createElement("td");
-        itemExtendedPrice.textContent = (menu[item]["price"] * current["cart"]["selected"][item]);
+        itemExtendedPrice.textContent = (menu_content[item]["price"] * current["cart"]["selected"][item]);
 
         itemRow.appendChild(itemI);
         itemRow.appendChild(itemName);
@@ -264,16 +264,16 @@ export function deployOrder () {
         j++;
 
         const itemName = document.createElement("td");
-        itemName.textContent = menu[item][current["lang"]]["dish_title"];
+        itemName.textContent = menu_content[item][current["lang"]]["dish_title"];
 
         const itemQuantity = document.createElement("td");
         itemQuantity.textContent = current["cart"]["ordered"][item];
 
         const itemUnitPrice = document.createElement("td");
-        itemUnitPrice.textContent = menu[item]["price"];
+        itemUnitPrice.textContent = menu_content[item]["price"];
 
         const itemExtendedPrice = document.createElement("td");
-        itemExtendedPrice.textContent = (menu[item]["price"] * current["cart"]["ordered"][item]);
+        itemExtendedPrice.textContent = (menu_content[item]["price"] * current["cart"]["ordered"][item]);
 
         itemRow.appendChild(itemI);
         itemRow.appendChild(itemName);
@@ -320,12 +320,19 @@ export function deployOrder () {
     sectionOne.appendChild(cartTable);
     sectionOne.appendChild(makeOrder);
 
-    container.appendChild(sectionOne);
+    const order = document.createElement("div");
+    order.setAttribute("id", "order");
+    order.setAttribute("class", "page-content");
+
+
+    order.appendChild(sectionOne);
 
     sectionTwo.appendChild(billTitle);
     sectionTwo.appendChild(billTable);
     sectionTwo.appendChild(makePayment);
 
-    container.appendChild(sectionTwo);
+    order.appendChild(sectionTwo);
+
+    container.appendChild(order);
 
 }

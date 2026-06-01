@@ -1,4 +1,7 @@
 import { parentElement, current, container} from ".";
+import facebookLogo from "./assets/facebook-logo.png";
+import instagramLogo from "./assets/instagram-logo.png";
+import xLogo from "./assets/x-logo.png";
 
 export let localeContact = {
 
@@ -26,17 +29,62 @@ export let localeContact = {
         "communication-head-title": "Head of Communication",
         "communication-head-email": "brucele@kburrow.com",
         "communication-head-phone": "+52 ZZ 6464 6464",
+        "our-social": "Follow our social accounts",
     },
 
     'es': {
 
-        "contact-title": "Queremos saber de ti",
+        "contact-title": "Queremos escuchar de ti",
+        "name-placeholder": "Escribe tu nombre",
+        "name-input-label": "Nombre: ",
+        "phone-data-label": "Número de teléfono: ",
+        "phone-placeholder": "+1 55 5555 5555",
+        "email-label": "Correo electrónico: ",
+        "email-placeholder": "someone@someplace.com",
+        "message-label": "Tú mensaje (opcional): ",
+        "send-button": "Enviar mensaje",
+        "between-subpanel": "O, si prefieres contactarnos directamente:",
+        "owner-name": "John Doe",
+        "owner-title": "Jefe de Cocina",
+        "owner-email": "johndo@kburrow.com",
+        "owner-phone": "+52 XX 9999 9999",
+        "manager-name": "Dors Venabili",
+        "manager-title": "Gerente",
+        "manager-email": "dorsve@kburrow.com",
+        "manager-phone": "+52 YY 0000 0000",
+        "communication-head-name": "Bruce Levenspiel",
+        "communication-head-title": "Jefe de Comunicación",
+        "communication-head-email": "brucele@kburrow.com",
+        "communication-head-phone": "+52 ZZ 6464 6464",
+        "our-social": "Sigue nuestras redes sociales",
 
     },
 
     'ja': {
 
-        "contact-title": "お客様からお興味をご存知欲しくていただきます。",
+        "contact-title": "お話しましょう",
+        "name-placeholder": "ここ名前を書く",
+        "name-input-label": "お名前: ",
+        "phone-data-label": "電話番号: ",
+        "phone-placeholder": "+1 55 5555 5555",
+        "email-label": "メールアドレス: ",
+        "email-placeholder": "someone@someplace.com",
+        "message-label": "メッセージ (不要): ",
+        "send-button": "メッセージを放送",
+        "between-subpanel": "店の人に連絡する",
+        "owner-name": "ドエ・ヤーン",
+        "owner-title": "料理長",
+        "owner-email": "johndo@kburrow.com",
+        "owner-phone": "+52 XX 9999 9999",
+        "manager-name": "ベナビリ・ドース",
+        "manager-title": "社長",
+        "manager-email": "dorsve@kburrow.com",
+        "manager-phone": "+52 YY 0000 0000",
+        "communication-head-name": "レベンスピール・ブルズ",
+        "communication-head-title": "報道部長",
+        "communication-head-email": "brucele@kburrow.com",
+        "communication-head-phone": "+52 ZZ 6464 6464",
+        "our-social": "SNSアカウントをフォローする",
 
     },
 
@@ -50,6 +98,18 @@ export let localeContact = {
 }
 
 let contactPeople = ["owner", "manager", "communication-head"];
+
+let socialAccounts = {
+    
+    "facebook": facebookLogo,
+
+    "instagram": instagramLogo,
+    
+    "x": xLogo,
+
+}
+
+
 
 export function deployContacts () {
 
@@ -164,52 +224,90 @@ export function deployContacts () {
 
         // create name element for each contact
 
+        const bussinessCard = document.createElement("div");
+        bussinessCard.setAttribute("class", "bussiness-card");
+        bussinessCard.setAttribute("id", contactPeople[i] + "-card");
+
+        const profilePhoto = document.createElement("img");
+        profilePhoto.setAttribute("class", "people-photo");
+        profilePhoto.setAttribute("src", "/assets/" + contactPeople[i] + "-photo.jpg");
+        profilePhoto.setAttribute("id", contactPeople[i] + "-photo");
+
+        const peopleDataContainer = document.createElement("div");
+        peopleDataContainer.setAttribute("class", "data-container");
+
+
         const contactPeopleName = document.createElement("div");
-        contactPeopleName.setAttribute("class", "people-name");
+        contactPeopleName.setAttribute("class", "people-name " + current["lang"] + " body");
         contactPeopleName.setAttribute("id", contactPeople[i] + "-name");
         contactPeopleName.textContent = localeContact[current["lang"]][contactPeople[i] + "-name"];
 
         // create title element for each contact
 
         const contactPeopleTitle = document.createElement("div");
-        contactPeopleTitle.setAttribute("class", "people-title");
+        contactPeopleTitle.setAttribute("class", "people-title " + current["lang"] + " body");
         contactPeopleTitle.setAttribute("id", contactPeople[i] + "-title");
         contactPeopleTitle.textContent = localeContact[current["lang"]][contactPeople[i] + "-title"];
 
         // create email element for each contact
 
         const contactPeopleEmail = document.createElement("div");
-        contactPeopleEmail.setAttribute("class", "people-email");
+        contactPeopleEmail.setAttribute("class", "people-email " + "body");
         contactPeopleEmail.setAttribute("id", contactPeople[i] + "-email");
         contactPeopleEmail.textContent = localeContact[current["lang"]][contactPeople[i] + "-email"];
 
         // create phone element for each contact
 
         const contactPeoplePhone = document.createElement("div");
-        contactPeoplePhone.setAttribute("class", "people-phone");
+        contactPeoplePhone.setAttribute("class", "people-phone " + "body");
         contactPeoplePhone.setAttribute("id", contactPeople[i] + "-phone");
         contactPeoplePhone.textContent = localeContact[current["lang"]][contactPeople[i] + "-phone"];
 
         // append elements to each person container
 
-        const contactContainer = document.createElement("div");
-        contactContainer.setAttribute("class", "contact-container");
-        contactContainer.appendChild(contactPeopleName);
-        contactContainer.appendChild(contactPeopleTitle);
-        contactContainer.appendChild(contactPeopleEmail);
-        contactContainer.appendChild(contactPeoplePhone);
+        peopleDataContainer.appendChild(contactPeopleName);
+        peopleDataContainer.appendChild(contactPeopleTitle);
+        peopleDataContainer.appendChild(contactPeopleEmail);
+        peopleDataContainer.appendChild(contactPeoplePhone);
 
-        subPanelContactInfo.appendChild(contactContainer);
+        bussinessCard.appendChild(profilePhoto);
+        bussinessCard.appendChild(peopleDataContainer);
+
+        subPanelContactInfo.appendChild(bussinessCard);
 
     }
 
-    // panel.appendChild(subPanelInput);
+    const socialTitle = document.createElement("div");
+    socialTitle.textContent = localeContact[current["lang"]]["our-social"];
+    socialTitle.setAttribute("class", "subheader " + current["lang"])
+
+    const socialContainer = document.createElement("div");
+    socialContainer.setAttribute("class", "panel");
+    socialContainer.setAttribute("id", "social-container");
+
+     for (let account in socialAccounts) {
+
+        const accountElement = document.createElement("img");
+        accountElement.setAttribute("id", account + "-account");
+        accountElement.setAttribute("class", "social-account");
+        accountElement.src = socialAccounts[account]
+
+        socialContainer.appendChild(accountElement);
+
+    }
 
 
-    container.appendChild(contactTitle);
-    container.appendChild(panel);
-    container.appendChild(betweenSubpanel);
-    container.appendChild(subPanelContactInfo);
+    const contact = document.createElement("div");
+    contact.setAttribute("id", "contact");
+    contact.setAttribute("class", "page-content");
 
+    contact.appendChild(contactTitle);
+    contact.appendChild(panel);
+    contact.appendChild(betweenSubpanel);
+    contact.appendChild(subPanelContactInfo);
+    contact.appendChild(socialTitle);
+    contact.appendChild(socialContainer);
+
+    container.appendChild(contact)
 
 }
