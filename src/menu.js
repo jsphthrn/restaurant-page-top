@@ -85,7 +85,7 @@ function deployMenu() {
         const entries = document.createElement("div");
         entries.setAttribute("class", "entry");
         entries.setAttribute("id", entry);
-
+　
         const images = document.createElement("img");
         images.setAttribute("class", "dish-image");
         images.src = menuImages[entry];
@@ -100,14 +100,14 @@ function deployMenu() {
 
         const inds = document.createElement("div");
         inds.textContent = menu_content[entry][current["lang"]]["sensitive_ingredients"];
-        inds.setAttribute("class", "entry-ind");
+        inds.setAttribute("class", "entry-ind " + current["lang"]);
 
         const prices = document.createElement("div");
-        prices.textContent = menu_content[entry]["price"] + " MXN";
-        prices.setAttribute("class", "entry-price");
+        prices.textContent = "$ " + menu_content[entry]["price"];
+        prices.setAttribute("class", "entry-price " + current["lang"]);
 
         const count = document.createElement("div");
-        count.setAttribute("class", "entry-counter");
+        count.setAttribute("class", "entry-counter body " + current["lang"]);
         count.setAttribute("id", entry + "-counter");
         count.textContent = 1;
 
@@ -150,9 +150,26 @@ function deployMenu() {
         minus.setAttribute("class", "action-button");
         minus.onclick = () => {
 
-            document.getElementById(entry + "-counter").textContent -= 1;
+            if (document.getElementById(entry + "-counter").textContent * 1 > 1) {
+
+                document.getElementById(entry + "-counter").textContent -= 1;
+
+            }
+
+            
 
         }
+
+        const actionContainer = document.createElement("div");
+        actionContainer.setAttribute("class", "action-container");
+
+        const controlContainer = document.createElement("div");
+        controlContainer.setAttribute("class", "control-container");
+
+        const prodOperator = document.createElement("div");
+        prodOperator.textContent = " x ";
+        prodOperator.setAttribute("class", "body " + current["lang"]);
+
 
 
         entries.appendChild(images);
@@ -160,9 +177,13 @@ function deployMenu() {
         entries.appendChild(descs);
         entries.appendChild(inds);
         entries.appendChild(prices);
-        entries.appendChild(plus);
-        entries.appendChild(minus);
-        entries.appendChild(count);
+        actionContainer.appendChild(plus);
+        actionContainer.appendChild(minus);
+        actionContainer.appendChild(count);
+        actionContainer.appendChild(prodOperator);
+        controlContainer.appendChild(actionContainer);
+        controlContainer.appendChild(prices);
+        entries.appendChild(controlContainer);
         entries.appendChild(addCart);
 
         if (menu_content[entry]["type"] === "dish") {

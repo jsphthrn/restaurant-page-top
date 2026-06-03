@@ -87,14 +87,16 @@ export function deployHome () {
 
     const subsectionTwoOne = document.createElement("div");
     subsectionTwoOne.setAttribute("class", "subsection");
+    subsectionTwoOne.setAttribute("id", "home-subsection-2-1");
     
 
     const subsectionTwoTwo = document.createElement("div");
     subsectionTwoTwo.setAttribute("class", "subsection");
+    subsectionTwoTwo.setAttribute("id", "home-subsection-2-2");
 
     const subHeaderDishes = document.createElement("div");
     subHeaderDishes.setAttribute("class","subheader " + current["lang"]);
-    subHeaderDishes.setAttribute("id","subheader-dishes");
+    subHeaderDishes.setAttribute("id", "subheader-dishes");
     subHeaderDishes.textContent = localeHome[lang]["subheader-dishes"];
 
     subsectionTwoOne.appendChild(subHeaderDishes);

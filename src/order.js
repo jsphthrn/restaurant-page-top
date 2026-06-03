@@ -100,7 +100,7 @@ export function deployOrder () {
     sectionTwo.setAttribute("class", "section");
 
     const cartTitle = document.createElement("div");
-    cartTitle.setAttribute("class", "subheader");
+    cartTitle.setAttribute("class", "subheader " + current["lang"]);
     cartTitle.setAttribute("id", "cart-title");
     cartTitle.textContent = localeOrder[current["lang"]]["cart"];
 
@@ -112,22 +112,32 @@ export function deployOrder () {
     
     const cartCountHeader = document.createElement("th");
     cartCountHeader.textContent = "i";
+    cartCountHeader.setAttribute("scope", "col");
+    cartCountHeader.setAttribute("class", "body " + current["lang"]);
     cartHeaderRow.appendChild(cartCountHeader);
 
     const cartItemHeader = document.createElement("th")
     cartItemHeader.textContent = localeOrder[current["lang"]]["item"];
+    cartItemHeader.setAttribute("scope", "col");
+    cartItemHeader.setAttribute("class", "body " + current["lang"]);
     cartHeaderRow.appendChild(cartItemHeader);
 
     const cartItemQuantityHeader = document.createElement("th");
     cartItemQuantityHeader.textContent = localeOrder[current["lang"]]["quantity"];
+    cartItemQuantityHeader.setAttribute("scope", "col");
+    cartItemQuantityHeader.setAttribute("class", "body " + current["lang"]);
     cartHeaderRow.appendChild(cartItemQuantityHeader);
 
     const cartUnitPriceHeader = document.createElement("th");
     cartUnitPriceHeader.textContent = localeOrder[current["lang"]]["unit-price"];
+    cartUnitPriceHeader.setAttribute("scope", "col");
+    cartUnitPriceHeader.setAttribute("class", "body " + current["lang"]);
     cartHeaderRow.appendChild(cartUnitPriceHeader);
 
     const cartExtendedPriceHeader = document.createElement("th");
     cartExtendedPriceHeader.textContent = localeOrder[current["lang"]]["extended-price"];
+    cartExtendedPriceHeader.setAttribute("scope", "col");
+    cartExtendedPriceHeader.setAttribute("class", "body " + current["lang"]);
     cartHeaderRow.appendChild(cartExtendedPriceHeader);
 
     const cartTableBody = document.createElement("tbody");
@@ -139,20 +149,25 @@ export function deployOrder () {
         const itemRow = document.createElement("tr");
 
         const itemI = document.createElement("td");
+        itemI.setAttribute("class", "cart-cell " + current["lang"]);
         itemI.textContent = k;
         k++;
 
         const itemName = document.createElement("td");
+        itemName.setAttribute("class", "cart-cell " + current["lang"]);
         itemName.textContent = menu_content[item][current["lang"]]["dish_title"];
 
         const itemQuantity = document.createElement("td");
+        itemQuantity.setAttribute("class", "cart-cell " + current["lang"]);
         itemQuantity.textContent = current["cart"]["selected"][item];
 
         const itemUnitPrice = document.createElement("td");
-        itemUnitPrice.textContent = menu_content[item]["price"];
+        itemUnitPrice.setAttribute("class", "cart-cell " + current["lang"]);
+        itemUnitPrice.textContent = "$ " + menu_content[item]["price"];
 
         const itemExtendedPrice = document.createElement("td");
-        itemExtendedPrice.textContent = (menu_content[item]["price"] * current["cart"]["selected"][item]);
+        itemExtendedPrice.setAttribute("class", "cart-cell " + current["lang"]);
+        itemExtendedPrice.textContent = "$ " + (menu_content[item]["price"] * current["cart"]["selected"][item]);
 
         itemRow.appendChild(itemI);
         itemRow.appendChild(itemName);
@@ -169,10 +184,13 @@ export function deployOrder () {
     const cartFooterRow = document.createElement("tr");
 
     const totalCart = document.createElement("td");
+    totalCart.setAttribute("colspan", "4");
+    totalCart.setAttribute("class", "body " + current["lang"]);
     totalCart.textContent = localeOrder[current["lang"]]["total"];
 
     const cartValue = document.createElement("td");
-    cartValue.textContent = calcCart();
+    cartValue.setAttribute("class", "body " + current["lang"]);
+    cartValue.textContent = "$ " + calcCart();
 
     cartFooterRow.appendChild(totalCart);
     cartFooterRow.appendChild(cartValue);
@@ -185,8 +203,9 @@ export function deployOrder () {
     cartTable.appendChild(cartTableBody);
     cartTable.appendChild(cartTableFooter);
 
-    const makeOrder = document.createElement("button");
+    const makeOrder = document.createElement("button"); // this transfers cart to already ordered items
     makeOrder.textContent = localeOrder[current["lang"]]["make-order"];
+    makeOrder.setAttribute("class", "action-button");
     makeOrder.onclick = () => {
 
         if (current["cart"]["selected"] !== {}) {
@@ -233,22 +252,27 @@ export function deployOrder () {
     
     const billCountHeader = document.createElement("th");
     billCountHeader.textContent = "i";
+    billCountHeader.setAttribute("class", "body " + current["lang"]);
     billHeaderRow.appendChild(billCountHeader);
 
     const billItemHeader = document.createElement("th")
     billItemHeader.textContent = localeOrder[current["lang"]]["item"];
+    billItemHeader.setAttribute("class", "body " + current["lang"]);
     billHeaderRow.appendChild(billItemHeader);
 
     const billItemQuantityHeader = document.createElement("th");
     billItemQuantityHeader.textContent = localeOrder[current["lang"]]["quantity"];
+    billItemQuantityHeader.setAttribute("class", "body " + current["lang"]);
     billHeaderRow.appendChild(billItemQuantityHeader);
 
     const billUnitPriceHeader = document.createElement("th");
     billUnitPriceHeader.textContent = localeOrder[current["lang"]]["unit-price"];
+    billUnitPriceHeader.setAttribute("class", "body " + current["lang"]);
     billHeaderRow.appendChild(billUnitPriceHeader);
 
     const billExtendedPriceHeader = document.createElement("th");
     billExtendedPriceHeader.textContent = localeOrder[current["lang"]]["extended-price"];
+    billExtendedPriceHeader.setAttribute("class", "body " + current["lang"]);
     billHeaderRow.appendChild(billExtendedPriceHeader);
 
     const billTableBody = document.createElement("tbody");
@@ -260,20 +284,25 @@ export function deployOrder () {
         const itemRow = document.createElement("tr");
 
         const itemI = document.createElement("td");
+        itemI.setAttribute("class", "cart-cell " + current["lang"]);
         itemI.textContent = j;
         j++;
 
         const itemName = document.createElement("td");
+        itemName.setAttribute("class", "cart-cell " + current["lang"]);
         itemName.textContent = menu_content[item][current["lang"]]["dish_title"];
 
         const itemQuantity = document.createElement("td");
+        itemQuantity.setAttribute("class", "cart-cell " + current["lang"]);
         itemQuantity.textContent = current["cart"]["ordered"][item];
 
         const itemUnitPrice = document.createElement("td");
-        itemUnitPrice.textContent = menu_content[item]["price"];
+        itemUnitPrice.setAttribute("class", "cart-cell " + current["lang"]);
+        itemUnitPrice.textContent = "$ " + menu_content[item]["price"];
 
         const itemExtendedPrice = document.createElement("td");
-        itemExtendedPrice.textContent = (menu_content[item]["price"] * current["cart"]["ordered"][item]);
+        itemExtendedPrice.setAttribute("class", "cart-cell " + current["lang"]);
+        itemExtendedPrice.textContent = "$ " + (menu_content[item]["price"] * current["cart"]["ordered"][item]);
 
         itemRow.appendChild(itemI);
         itemRow.appendChild(itemName);
@@ -290,10 +319,13 @@ export function deployOrder () {
     const billFooterRow = document.createElement("tr");
 
     const totalBill = document.createElement("td");
+    totalBill.setAttribute("colspan", "4")
+    totalBill.setAttribute("class", "body " + current["lang"]);
     totalBill.textContent = localeOrder[current["lang"]]["total"];
 
     const billValue = document.createElement("td");
-    billValue.textContent = calcBill();
+    billValue.setAttribute("class", "body " + current["lang"]);
+    billValue.textContent = "$ " + calcBill();
 
     billFooterRow.appendChild(totalBill);
     billFooterRow.appendChild(billValue);
@@ -308,7 +340,8 @@ export function deployOrder () {
 
     const makePayment = document.createElement("button");
     makePayment.textContent = localeOrder[current["lang"]]["pay"];
-    makePayment.onclick = () => {
+    makePayment.setAttribute("class", "action-button");
+    makePayment.onclick = () => { // this simulates payment, I still don't know how to implement a payment syste, :P
 
         current["cart"]["ordered"] = {};
         alert(localeOrder[current["lang"]]["bill-paid"]);

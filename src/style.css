@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP&family=Noto+Sans+SC:wght@100..900&family=Noto+Serif+SC:wght@200..900&family=Zen+Old+Mincho&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=IBM+Plex+Sans+JP&family=Noto+Sans+SC:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Noto+Serif+SC:wght@200..900&family=Zen+Old+Mincho&display=swap');
 
 
 * {
@@ -15,7 +15,7 @@
     font-family: 'Zen Old Mincho', serif;
 }
 
-.ja.body, .ja.entry-desc {
+.ja.body, .ja.entry-desc, .ja.entry-ind, .ja.entry-price, .ja.cart-cell, .ja.order-cell {
     font-family: 'IBM Plex Sans JP', sans-serif;
 }
 
@@ -23,8 +23,18 @@
     font-family: 'Noto Serif SC', serif;
 }
 
-.zh-Hans.body, .zh-Hans.entry-desc {
+.zh-Hans.body, .zh-Hans.entry-desc, .zh-Hans.entry-ind, .zh-Hans.entry-price, .zh-Hans.cart-cell, .zh-Hans.order-cell {
     font-family: 'Noto Sans SC', sans-serif;
+}
+
+.en.subheader, .en.header, .en.entry-title, .es.subheader, .es.header, .es.entry-title {
+    font-family: 'Bodoni Moda', serif;
+}
+
+.es.body, .es.entry-desc, .en.body, .en.entry-desc, .en.entry-ind, .es.entry-ind, .es.entry-price, .en.entry-price, .en.cart-cell, .es.cart-cell {
+    font-family: "Noto Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
 }
 
 body {
@@ -86,6 +96,7 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 2em 0;
 }
 
 .section {
@@ -96,6 +107,12 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+}
+
+.section * {
+
+    margin: 0.5em 0;
 
 }
 
@@ -125,6 +142,23 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 0 1em;
+}
+
+#home-subsection-2-1 {
+
+    border-right-style: solid;
+    border-right-color: var(--reduced-black);
+    border-right-width: 1px;
+
+}
+
+#home-subsection-2-2 {
+
+    border-left-style: solid;
+    border-left-color: var(--reduced-black);
+    border-left-width: 1px;
+
 }
 
 .element-container {
@@ -167,8 +201,11 @@ header {
 .menu-container {
     display: grid;
     max-width: 85vw;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 10vw));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 10vw));
     gap: 1em;
+    border-top-width: 1px;
+    border-top-style: solid;
+    padding: 2em 0;
 }
 
 .entry {
@@ -180,19 +217,11 @@ header {
     border-radius: 1px;
     border-style: solid;
     height: auto;
-
 }
 
 .subsection-menu {
     display: grid;
     
-}
-
-footer {
-
-    background-color: var(--main-black);
-
-
 }
 
 table {
@@ -260,7 +289,101 @@ td, th {
 }
 
 .dish-image {
-    height: 100px;
+    height: 125px;
     width: auto;
+
+}
+
+footer {
+    height: 10vh;
+    background-color: var(--main-black);
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    padding: 0 2em;
+}
+
+#my-logo {
+
+    height: 5em;
+
+}
+
+.footer-element {
+    color: var(--white-background);
+    padding: 2em;
+}
+
+#identity-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-self: center;
+}
+
+.entry-title {
+    font-size: 28px;
+}
+
+.entry-desc {
+    font-size: 14px;
+    color: var(--reduced-black);
+}
+
+.entry-ind {
+    font-size: 14px;
+    color: var(--reduced-black);
+    font-weight: 700;
+}
+
+.entry-counter {
+
+    padding: 0 1em;
+
+}
+
+.entry * {
+
+    padding: 0.4em 0;
+
+}
+
+.action-container {
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+
+.action-container * {
+
+    margin: 0 0.3333em;
+
+}
+
+.control-container {
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+}
+
+.action-button {
+
+    padding: 0.6em 1em;
+    min-width: 2em;
+    min-height: 2em;
+    border-radius: 0px;
+    border-style: solid;
+    border-width: 1px;
+
+}
+
+.order-cell, .cart-cell {
+
+    font-size: 14px;
 
 }
