@@ -84,13 +84,35 @@ export let localeContact = {
         "communication-head-title": "報道部長",
         "communication-head-email": "brucele@kburrow.com",
         "communication-head-phone": "+52 ZZ 6464 6464",
-        "our-social": "SNSアカウントをフォローする",
+        "our-social": "SNSアカウントをフォロー",
 
     },
 
     'zh-Hans': {
 
-        "contact-title": "请让我们关于您更知道",
+        "contact-title": "请让您更知道",
+        "name-placeholder": "输入名字",
+        "name-input-label": "名字: ",
+        "phone-data-label": "电话号: ",
+        "phone-placeholder": "+1 55 5555 5555",
+        "email-label": "电邮地址: ",
+        "email-placeholder": "someone@someplace.com",
+        "message-label": "通信 (不要): ",
+        "send-button": "送信",
+        "between-subpanel": "联系饭馆员工",
+        "owner-name": "约翰 窦娥",
+        "owner-title": "厨师长 / 业主",
+        "owner-email": "johndo@kburrow.com",
+        "owner-phone": "+52 XX 9999 9999",
+        "manager-name": "都酥 被那比例",
+        "manager-title": "经理",
+        "manager-email": "dorsve@kburrow.com",
+        "manager-phone": "+52 YY 0000 0000",
+        "communication-head-name": "布鲁斯 氯苯死比例",
+        "communication-head-title": "记者部长",
+        "communication-head-email": "brucele@kburrow.com",
+        "communication-head-phone": "+52 ZZ 6464 6464",
+        "our-social": "社媒帐户关注",
 
     },
 
@@ -115,7 +137,7 @@ export function deployContacts () {
 
     const contactTitle = document.createElement("div");
     contactTitle.textContent = localeContact[current["lang"]]["contact-title"];
-    contactTitle.setAttribute("class", "subheader");
+    contactTitle.setAttribute("class", "subheader " + current["lang"] );
 
     const contactParagraph = document.createElement("div");
     contactParagraph.textContent = localeContact[current["lang"]]["contact-paragraph"];
@@ -139,7 +161,7 @@ export function deployContacts () {
 
     const nameInput = document.createElement("input");
     nameInput.setAttribute("placeholder", localeContact[current["lang"]]["name-placeholder"]);
-    nameInput.setAttribute("class", "message-input");
+    nameInput.setAttribute("class", "message-input " + current["lang"]);
     nameInput.setAttribute("id", "name-input");
     nameInput.setAttribute("name", "name-input");
     nameInput.setAttribute("type", "text");
@@ -147,7 +169,7 @@ export function deployContacts () {
     const nameInputLabel = document.createElement("label");
     nameInputLabel.setAttribute("for", "name-input");
     nameInputLabel.textContent = localeContact[current["lang"]]["name-input-label"];
-    nameInputLabel.setAttribute("class", "input-label");
+    nameInputLabel.setAttribute("class", "input-label " + current["lang"]);
 
     nameInputContainer.appendChild(nameInputLabel);
     nameInputContainer.appendChild(nameInput);
@@ -156,7 +178,7 @@ export function deployContacts () {
     phoneInputContainer.setAttribute("class", "input-container");
 
     const phoneInput = document.createElement("input");
-    phoneInput.setAttribute("class", "message-input");
+    phoneInput.setAttribute("class", "message-input " + current["lang"]);
     phoneInput.setAttribute("placeholder", localeContact[current["lang"]]["phone-placeholder"]);
     phoneInput.setAttribute("id", "phone-input");
     phoneInput.setAttribute("name", "phone-input");
@@ -164,7 +186,7 @@ export function deployContacts () {
 
     const phoneInputLabel = document.createElement("label");
     phoneInputLabel.setAttribute("for", "phone-input");
-    phoneInputLabel.setAttribute("class", "input-label");
+    phoneInputLabel.setAttribute("class", "input-label " + current["lang"]);
     phoneInputLabel.textContent = localeContact[current["lang"]]["phone-data-label"];
 
     phoneInputContainer.appendChild(phoneInputLabel);
@@ -182,38 +204,43 @@ export function deployContacts () {
 
     const emailInputLabel = document.createElement("label");
     emailInputLabel.setAttribute("for", "email-input");
-    emailInputLabel.setAttribute("class", "input-label");
+    emailInputLabel.setAttribute("class", "input-label " + current["lang"]);
     emailInputLabel.textContent = localeContact[current["lang"]]["email-label"];
 
     emailInputContainer.appendChild(emailInputLabel);
     emailInputContainer.appendChild(emailInput);
 
+    const messageInputContainer = document.createElement("div");
+    messageInputContainer.setAttribute("class", "input-container");
+
     const messageInput = document.createElement("input");
-    messageInput.setAttribute("class", "message-input");
+    messageInput.setAttribute("class", "message-input " + current["lang"]);
     messageInput.setAttribute("id", "message-input");
     messageInput.setAttribute("name", "message-input");
     messageInput.setAttribute("type", "text");
 
     const messageInputLabel = document.createElement("label");
     messageInputLabel.setAttribute("for", "message-input");
-    messageInputLabel.setAttribute("class", "input-label");
+    messageInputLabel.setAttribute("class", "input-label " + current["lang"]);
     messageInputLabel.textContent = localeContact[current["lang"]]["message-label"];
+
+    messageInputContainer.appendChild(messageInputLabel);
+    messageInputContainer.appendChild(messageInput);
 
     const sendMessageButton = document.createElement("button");
     sendMessageButton.setAttribute("id", "send-message");
-    sendMessageButton.setAttribute("class", "action-button");
+    sendMessageButton.setAttribute("class", "action-button " + current["lang"]);
     sendMessageButton.textContent = localeContact[current["lang"]]["send-button"];
 
     panel.appendChild(nameInputContainer);
     panel.appendChild(phoneInputContainer);
     panel.appendChild(emailInputContainer);
-    panel.appendChild(messageInputLabel);
-    panel.appendChild(messageInput);
+    panel.appendChild(messageInputContainer);
     panel.appendChild(sendMessageButton);
 
 
     const betweenSubpanel = document.createElement("div");
-    betweenSubpanel.setAttribute("class", "subheader");
+    betweenSubpanel.setAttribute("class", "subheader " + current["lang"]);
     betweenSubpanel.textContent = localeContact[current["lang"]]["between-subpanel"];
 
     const subPanelContactInfo = document.createElement("div");
@@ -282,7 +309,6 @@ export function deployContacts () {
     socialTitle.setAttribute("class", "subheader " + current["lang"])
 
     const socialContainer = document.createElement("div");
-    socialContainer.setAttribute("class", "panel");
     socialContainer.setAttribute("id", "social-container");
 
      for (let account in socialAccounts) {

@@ -15,7 +15,7 @@
     font-family: 'Zen Old Mincho', serif;
 }
 
-.ja.body, .ja.entry-desc, .ja.entry-ind, .ja.entry-price, .ja.cart-cell, .ja.order-cell {
+.ja.body, .ja.entry-desc, .ja.entry-ind, .ja.entry-price, .ja.cart-cell, .ja.order-cell, .ja.message-input, .ja.input-label {
     font-family: 'IBM Plex Sans JP', sans-serif;
 }
 
@@ -23,15 +23,15 @@
     font-family: 'Noto Serif SC', serif;
 }
 
-.zh-Hans.body, .zh-Hans.entry-desc, .zh-Hans.entry-ind, .zh-Hans.entry-price, .zh-Hans.cart-cell, .zh-Hans.order-cell {
+.zh-Hans.body, .zh-Hans.entry-desc, .zh-Hans.entry-ind, .zh-Hans.entry-price, .zh-Hans.cart-cell, .zh-Hans.order-cell, .zh-Hans.message-input, .zh-Hans.input-label {
     font-family: 'Noto Sans SC', sans-serif;
 }
 
-.en.subheader, .en.header, .en.entry-title, .es.subheader, .es.header, .es.entry-title {
+.en.subheader, .en.header, .en.entry-title, .es.subheader, .es.header, .es.entry-title   {
     font-family: 'Bodoni Moda', serif;
 }
 
-.es.body, .es.entry-desc, .en.body, .en.entry-desc, .en.entry-ind, .es.entry-ind, .es.entry-price, .en.entry-price, .en.cart-cell, .es.cart-cell {
+.es.body, .es.entry-desc, .en.body, .en.entry-desc, .en.entry-ind, .es.entry-ind, .es.entry-price, .en.entry-price, .en.cart-cell, .es.cart-cell, .es.message-input, .en.message-input, .es.input-label, .en.input-label {
     font-family: "Noto Sans", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
@@ -97,6 +97,14 @@ header {
     align-items: center;
     justify-content: center;
     padding: 2em 0;
+}
+
+.page-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 90vw;
+    padding: 0.3333em;
 }
 
 .section {
@@ -185,12 +193,13 @@ header {
     font-size: 2.5em;
     font-weight: 500;
     margin: 0.5em 0;
+    padding: 0.5em 0;
 }
 
 .panel {
     border-style: solid;
     width: auto;
-    padding: 2em;
+    padding: 4em 2em;
 }
 
 #bussiness-table tr * {
@@ -224,7 +233,7 @@ header {
     
 }
 
-table {
+table { 
     border-collapse: collapse;
     justify-content: center;
     border-width: 3px;
@@ -386,4 +395,32 @@ footer {
 
     font-size: 14px;
 
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding: 0.5em 0;
+}
+
+.message-input {
+    height: 2em;
+    width: 24em;
+}
+
+#message-input {
+    height: 16em;
+    width: 48em;
+    display: flex;
+    align-items: start;
+    justify-content: start;
+}
+
+#subpanel-info {
+    display: grid;
+    max-width: 90vw;
+    gap: 1em;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 25vw));
+    padding: 1em 0;
 }
